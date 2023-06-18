@@ -11,35 +11,25 @@ import java.io.IOException;
 
 @WebServlet(name = "loginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
-    private String email,pass;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public void setPass(String pass) {
-        this.pass = pass;
-    }
 
     @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        System.out.println("sunt in do post");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if(!username.isEmpty() ||
-                !password.isEmpty())
-        {
-            RequestDispatcher req = request.getRequestDispatcher("dashboard.jsp");
-            req.forward(request, response);
-        }
 
+        // Perform form validation
+        if (username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
+            // Form is valid, redirect to dashboard
+            response.sendRedirect("dashboard.jsp");
+        } else {
+            // Form is invalid, show error message
+            request.setAttribute("error", "Please enter both username and password.");
+            request.getRequestDispatcher("login.jsp").forward(request, response);
+
+        }
     }
 }
