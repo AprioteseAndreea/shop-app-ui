@@ -25,10 +25,13 @@ public class RegisterServlet extends HttpServlet{
         String repeatedPassword = request.getParameter("repeated-password");
         if (StringUtil.isNotEmpty(email) && StringUtil.isNotEmpty(username) && StringUtil.isNotEmpty(password) && StringUtil.isNotEmpty(repeatedPassword)) {
             // All properties are not empty, redirect to confirm-account.jsp
-            response.sendRedirect("confirm-account.jsp");
+            request.setAttribute("username", username);
+            request.getRequestDispatcher("confirm-account.jsp").forward(request, response);
         } else {
             // At least one property is empty, print a error message
             request.setAttribute("error", "Please fill in all fields!");
+            request.setAttribute("email", email);
+            request.setAttribute("username", username);
             request.getRequestDispatcher("register.jsp").forward(request, response);
         }
 

@@ -21,11 +21,14 @@ public class ForgotPasswordTwo extends HttpServlet {
         String password = request.getParameter("password");
         String code = request.getParameter("code");
         String repeatedPassword = request.getParameter("repeated-password");
+        String username = request.getParameter("username");
 
         if (StringUtil.isNotEmpty(password) && StringUtil.isNotEmpty(code) && StringUtil.isNotEmpty(repeatedPassword)) {
             response.sendRedirect("login.jsp");
         } else {
-            request.getRequestDispatcher("forgot-password.jsp").forward(request, response);
+            request.setAttribute("username", username);
+            request.setAttribute("error", "Please fill in all fields!");
+            request.getRequestDispatcher("forgot-password-two.jsp").forward(request, response);
         }
     }
 }

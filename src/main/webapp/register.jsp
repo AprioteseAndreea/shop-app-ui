@@ -39,7 +39,7 @@
                                 name="email"
                                 aria-describedby="emailHelp"
                                 placeholder="Enter your email"
-                        />
+                                <% if (request.getAttribute("email") != null) { %>value="<%= request.getAttribute("email") %>"<% } %>                        />
                         <label for="username">*Username</label>
 
                         <input
@@ -49,6 +49,7 @@
                                 name="username"
                                 aria-describedby="emailHelp"
                                 placeholder="Enter your user name"
+                                <% if (request.getAttribute("username") != null) { %>value="<%= request.getAttribute("username") %>"<% } %>
                         />
 
                             <label for="password">*Password</label>

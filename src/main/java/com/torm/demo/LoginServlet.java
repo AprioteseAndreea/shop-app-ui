@@ -28,6 +28,7 @@ public class LoginServlet extends HttpServlet {
         } else {
             // Form is invalid, show error message
             request.setAttribute("error", "Please enter both username and password.");
+            request.setAttribute("username", username);
             request.getRequestDispatcher("login.jsp").forward(request, response);
 
         }
