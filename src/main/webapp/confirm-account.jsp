@@ -21,10 +21,16 @@
       <div class="title-container">
         <div class="title">  <i class="bi bi-check-circle-fill" id="successIcon" style="color: green"></i> <b>Your account has been successfully created!</b></div>
         <div class="subtitle">
-          Please enter in the box below the code you received by email to validate your account
+          Please enter in the box below the code you received by email to validate your account: <b><%= request.getAttribute("username") %></b>
         </div>
       </div>
       <form class="form" action="confirm-account" method="post">
+        <div class="form-group">
+
+          <input type="hidden" class="form-control" id="username" name="username"
+                 placeholder="Enter your user name" value="<%= request.getAttribute("username") %>">
+
+        </div>
         <div class="form-group">
           <label for="code">*Validation code</label>
           <input type="text" class="form-control" id="code" name="code" placeholder="Enter the validation code">

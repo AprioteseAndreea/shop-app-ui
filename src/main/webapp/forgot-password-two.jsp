@@ -24,14 +24,13 @@
             <div class="title-container">
                 <div class="title"><b>Forgot Password</b></div>
                 <div class="subtitle">
-                    A validation code has been sent to the email address associated with the user name entered. To reset
+                    A validation code has been sent to the email address associated with the user <b><%= request.getAttribute("username") %></b>. To reset
                     your password please complete the fields below.
                 </div>
             </div>
             <form class="form" action="forgot-password-two" method="post">
                 <div class="form-group">
-                    <label for="username">*User name</label>
-                    <input type="text" class="form-control" id="username" name="username" disabled
+                    <input type="hidden" class="form-control" id="username" name="username"
                            placeholder="Enter your user name" value="<%= request.getAttribute("username") %>">
 
                 </div>
