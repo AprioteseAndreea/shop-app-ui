@@ -190,8 +190,9 @@ input {
     font-size: 30px;
     color: #0d0f2f;
 }
+
 .subtitle {
-    font-size: 16px;
+    font-size: 15px;
     color: #0d0f2f;
     margin-top: 15px;
 }
@@ -212,4 +213,13 @@ input {
 .alert{
     padding: 0.25rem 1.25rem;
     margin-top: 0.5rem;
+}
+i {
+    margin-left: -30px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.pass-container{
+    display: flex;
+    flex-direction: row;
 }

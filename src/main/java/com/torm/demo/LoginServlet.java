@@ -22,7 +22,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
 
         // Perform form validation
-        if (username != null && !username.isEmpty() && password != null && !password.isEmpty()) {
+        if (StringUtil.isNotEmpty(username) && StringUtil.isNotEmpty(password)) {
             // Form is valid, redirect to dashboard
             response.sendRedirect("dashboard.jsp");
         } else {

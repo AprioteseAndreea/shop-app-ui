@@ -106,7 +106,26 @@
 
 
                         </script>
+                        <span id="passwordMatchError" style="color: red;"></span>
+                        <script>
+                            const passwordInput = document.getElementById("password");
+                            const confirmPasswordInput = document.getElementById("repeated-password");
+                            const passwordMatchError = document.getElementById("passwordMatchError");
+
+                            confirmPasswordInput.addEventListener("keyup", function() {
+                                const password = passwordInput.value;
+                                const confirmPassword = confirmPasswordInput.value;
+
+                                if (password !== confirmPassword) {
+                                    passwordMatchError.textContent = "Passwords do not match.";
+                                } else {
+                                    passwordMatchError.textContent = "";
+                                }
+                            });
+                        </script>
                     </div>
+
+
                     <% if (request.getAttribute("error") != null) { %>
                     <div class="alert alert-danger" role="alert" id="error">
                         <%= request.getAttribute("error") %>

@@ -10,6 +10,7 @@
           rel="stylesheet"></link>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
 
 <%--  <script>--%>
 <%--    function validateForm() {--%>
@@ -39,7 +40,7 @@
       <form class="form" action="login" method="post">
         <div class="form-group">
           <label for="username">*User name</label>
-          <input type="text" class="form-control" id="username" name="username"/>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Enter your user name"/>
 
         </div>
         <div class="form-group">
@@ -55,12 +56,32 @@
               >
             </div>
           </div>
-          <input
-                  type="password"
-                  class="form-control"
-                  id="password"
-                  name="password"
-          />
+          <p class="pass-container">
+            <input
+                    type="password"
+                    class="form-control"
+                    name="password"
+                    id="password"
+                    aria-describedby="emailHelp"
+                    placeholder="Enter your password"
+            />
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+          </p>
+          <script>
+            const togglePassword = document.querySelector("#togglePassword");
+            const password = document.querySelector("#password");
+
+            togglePassword.addEventListener("click", function () {
+              // toggle the type attribute
+              const type = password.getAttribute("type") === "password" ? "text" : "password";
+              password.setAttribute("type", type);
+
+              // toggle the icon
+              this.classList.toggle("bi-eye");
+            });
+
+
+          </script>
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="exampleCheck1"/>
