@@ -154,7 +154,7 @@
 
     <div class="hero-container">
         <label class="slogan"><b>Shopping has never been this much fun!</b></label>
-        <label class="slogan-two"><b>With one click you can have everything at your door in just one day!</b></label>
+        <label class="slogan-two"><b>Create your account and benefit from daily offers on a wide range of products!</b></label>
 
         <img
                 src="./resources/images/shop.jpg"
