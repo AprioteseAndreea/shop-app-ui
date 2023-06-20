@@ -24,7 +24,7 @@ public class ForgotPasswordTwo extends HttpServlet {
         String username = request.getParameter("username");
 
         if (StringUtil.isNotEmpty(password) && StringUtil.isNotEmpty(code) && StringUtil.isNotEmpty(repeatedPassword)) {
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login.xhtml");
         } else {
             request.setAttribute("username", username);
             request.setAttribute("error", "Please fill in all fields!");
