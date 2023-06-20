@@ -12,12 +12,17 @@ import java.util.List;
 
 @Named("dashboardBean")
 @SessionScoped
-@Getter
-@Setter
 public class DashboardBean implements Serializable {
 
     private static final long serialVersionUID = 1L;
     private List<String> products;
+    public List<String> getProducts() {
+        return products;
+    }
+
+    DashboardBean()
+    {
+    }
 
     @PostConstruct
     void init()
@@ -27,4 +32,10 @@ public class DashboardBean implements Serializable {
         this.products.add("Jacket Nebunie 2");
         this.products.add("Jacket Nebunie 3");
     }
+
+//    public void itemClicked(String s)
+//    {
+//        this.products.add("Jacket Nebunie 4");
+//    }
+
 }

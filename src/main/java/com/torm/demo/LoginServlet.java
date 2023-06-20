@@ -24,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         // Perform form validation
         if (StringUtil.isNotEmpty(username) && StringUtil.isNotEmpty(password)) {
             // Form is valid, redirect to dashboard
-            response.sendRedirect("dashboard.jsp");
+            response.sendRedirect("dashboard.xhtml");
         } else {
             // Form is invalid, show error message
             request.setAttribute("error", "Please enter both username and password.");

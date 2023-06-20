@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Login</title>
+    <link href="#{request.contextPath}/resources/css/login.css"
+          rel="stylesheet" />
+
+    <link
+            href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css"
+            rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+          crossorigin="anonymous"  />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"/>
+</h:head>
+<h:body>
+
+    <div class="main-container">
+        <div class="login-container">
+            <div class="credentials-container">
+                <div class="title-container">
+                    <div class="title"><b>Login</b></div>
+                    <div class="subtitle">
+                        Enter your credentials to access your account
+                    </div>
+                </div>
+                <h:form class="form" label="loginForm">
+                    <div class="form-group">
+                        <label>*User name</label>
+                        <h:inputText class="form-control" required="true" label="Username"
+                                     placeholder="Enter your user name" validatorMessage="Enter username"
+                                     value="#{loginBean.username}"></h:inputText>
+                    </div>
+                    <div class="form-group">
+                        <div class="password-container">
+                            <div><label>*Password</label></div>
+                            <div class="forgotPassword">
+                                <a
+                                        class="forgotPassword"
+                                        href="forgot-password"
+
+                                >
+                                    <b>Forgot password?</b></a
+                                >
+                            </div>
+                        </div>
+                        <p class="pass-container">
+                            <h:inputSecret
+                                    class="form-control"
+                                    label="Password"
+                                    required="true"
+                                    id="password"
+                                    placeholder="Enter your password"
+                                    validatorMessage="Enter password"
+                                    value="#{loginBean.password}">
+                            </h:inputSecret>
+                            <i class="bi bi-eye-slash" id="togglePassword"></i>
+                        </p>
+                        <script type="javascript">
+                            const togglePassword = document.querySelector("#togglePassword");
+                            const password = document.querySelector("#password");
+
+                            togglePassword.addEventListener("click", function () {
+                                // toggle the type attribute
+                                const type = password.getAttribute("type") === "password" ? "text" : "password";
+                                password.setAttribute("type", type);
+
+                                // toggle the icon
+                                this.classList.toggle("bi-eye");
+                            });
+                        </script>
+                    </div>
+                    <div class="form-group form-check">
+                        <h:selectBooleanCheckbox class="form-check-input" id="exampleCheck1"/>
+                        <label class="form-check-label" for="exampleCheck1">Remember information</label>
+                    </div>
+<!--                    <div class="alert alert-danger" role="alert" id="pass-error">-->
+<!--                    </div>-->
+                    <div class="button-container">
+                        <h:commandButton class="btn btn-primary login-btn"
+                        value="Login"
+                        action="#{loginBean.loginUser()}">
+                        </h:commandButton>
+                    </div>
+                    <div class="button-container">
+                        <label>Don't have an account? </label>
+                        <h:commandLink
+                                class="register-text"
+                                value="Register here"
+                                action="#{loginBean.register()}" />
+                    </div>
+                </h:form>
+            </div>
+        </div>
+
+        <div class="hero-container">
+            <label class="slogan"><b>Shopping has never been this much fun!</b></label>
+            <label class="slogan-two"><b>With one click you can have everything at your door in just one day!</b></label>
+
+            <img
+                    src="#{request.contextPath}/resources/images/shop.jpg"
+                    alt="bicycle-workshop"
+                    width="500"
+            />
+        </div>
+    </div>
+</h:body>
+</html>

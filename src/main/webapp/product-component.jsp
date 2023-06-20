@@ -29,7 +29,7 @@
         <ion-icon name="repeat-outline"></ion-icon>
       </button>
 
-      <button class="btn-action">
+      <button onclick="${dashboardBean.itemClicked(param.product)}"  class="btn-action">
         <ion-icon name="bag-add-outline"></ion-icon>
       </button>
 
