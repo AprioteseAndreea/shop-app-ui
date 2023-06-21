@@ -176,18 +176,20 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
 
 .product-grid .showcase:hover { box-shadow: 0 0 10px hsla(0, 0%, 0%, 0.1); }
 
-.product-grid .showcase-banner { position: relative; }
+.product-grid .showcase-banner { position: relative; cursor: pointer }
 
 .product-grid .product-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: var(--transition-timing);
+    cursor: pointer;
 }
 
 .product-grid .product-img.default {
     position: relative;
     z-index: 1;
+    cursor: pointer;
 }
 
 .product-grid .product-img.hover {
@@ -196,6 +198,7 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
     left: 0;
     z-index: 2;
     opacity: 0;
+    cursor: pointer;
 }
 
 .product-grid .showcase:hover .product-img.hover { opacity: 1; }
@@ -276,9 +279,10 @@ body::-webkit-scrollbar-thumb:hover { background: hsl(0, 0%, 70%); }
     letter-spacing: 1px;
     margin-bottom: 10px;
     transition: var(--transition-timing);
+    cursor: pointer;
 }
 
-.product-grid .showcase-title:hover { color: var(--eerie-black); }
+.product-grid .showcase-title:hover { color: var(--eerie-black); cursor: pointer }
 
 .product-grid .showcase-rating {
     display: flex;
