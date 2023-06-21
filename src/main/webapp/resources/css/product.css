@@ -1,0 +1,116 @@
+#product {
+    width: 1148px;
+    margin: 0 auto;
+    margin-top: 48px;
+    display: flex;
+}
+
+
+.product_details {
+    flex-grow: 1;
+    padding-left: 28px;
+}
+.product_details h4 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #111111;
+}
+.product_details p {
+    font-size: 14px;
+    color: #555555;
+    font-weight: 300;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    line-height: 24px;
+}
+.product_details ul {
+    margin-bottom: 40px;
+}
+.product_details ul li {
+    font-size: 14px;
+    color: #555555;
+    font-weight: 300;
+    line-height: 24px;
+    margin-left: 14px;
+    list-style: none;
+}
+.product_details ul li::before {
+    content: "\2022";
+    /* Add content: \2022 is the CSS Code/unicode for a bullet */
+    color: #cccccc;
+    /* Change the color */
+    display: inline-block;
+    /* Needed to add space between the bullet and the text */
+    width: 1em;
+    /* Also needed for space (tweak if needed) */
+    margin-left: -1em;
+    /* Also needed for space (tweak if needed) */
+}
+.cta {
+    display: flex;
+    width: 100%;
+    margin: 40px 0;
+    gap: 10px;
+}
+
+.material-symbols-outlined {
+    color: #111111;
+    font-size: 22px;
+    cursor: pointer;
+}
+.vert_devider {
+    width: 0.75px;
+    height: 28px;
+    background-color: #e1e1e1;
+    margin: 16px;
+}
+
+h6 {
+    font-size: 13px;
+    color: #555555;
+    font-weight: 300;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111111;
+}
+h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #68899a;
+}
+.about {
+    margin-top: 30px;
+}
+.about p {
+    font-size: 14px;
+    margin: 0;
+    color: #111111;
+    font-weight: 500;
+}
+.about span {
+    font-size: 14px;
+    margin: 0;
+    color: #68899a;
+    font-weight: 500;
+}
+.cta .material-symbols-outlined {
+    margin-right: 6px;
+}
+.delete-btn{
+    display: block;
+    text-align: center;
+    padding: 0.6rem 1.4rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    border-radius: 5px;
+    color: #fff;
+    background-color: #c82333;
+    border-color: #bd2130;
+    cursor: pointer;
+}
+.btn{
+    cursor: pointer;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+    <title>Product Page</title>
+    <link href="#{request.contextPath}/resources/css/global.css"
+          rel="stylesheet"/>
+    <link href="#{request.contextPath}/resources/css/product.css"
+          rel="stylesheet"/>
+</h:head>
+
+<h:body>
+    <ui:include src="header.xhtml"/>
+    <div class="product-container">
+
+        <div class="product-box">
+            <div class="product-main">
+                <div id="product">
+                    <img src="https://source.unsplash.com/E-0ON3VGrBc" width="50%" height="50%" alt="Product image"/>
+                    <div class="product_details">
+
+                        <h2>The Atelier Tailored Coat</h2>
+                        <h3>$499.00</h3>
+
+                        <div class="about">
+                            <h2>Product #{param.productId}</h2>
+                            <p>#{productBean.getProductDetails()}</p>
+                            <p>Availability :<span>In stock</span></p>
+
+                        </div>
+
+                        <p>Sleek, polished, and boasting an impeccably modern fit, this blue, 2-but-
+                            ton Lazio suit features a notch lapel, flap pockets, and accompanying flat
+                            front trousers—all in pure wool by Vitale Barberis Canonico.</p>
+                        <ul>
+                            <li>Dark blue suit for a tone-on-tone look</li>
+                            <li>Regular fit</li>
+                            <li>100% Cotton</li>
+                            <li>Free shipping with 4 days delivery</li>
+                        </ul>
+
+                        <div class="cta">
+                            <div class="btn btn_primary"><i class="bi bi-cart-dash-fill"/> Add to cart</div>
+                            <div class="btn btn_primary">
+                                <span class="material-symbols-outlined"/><i class="bi bi-heart-fill"/> Add to wishlist
+                            </div>
+                            <div class="delete-btn"><i class="bi bi-trash" onclick="deleteProduct()"/> Delete product
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+        function deleteProduct() {
+            window.location.href = "dashboard.xhtml?faces-redirect=true";
+        }
+    </script>
+</h:body>
+
+</html>

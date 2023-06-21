@@ -25,7 +25,7 @@
 <header id="nav-menu" aria-label="navigation bar">
     <div class="container">
         <div class="nav-start">
-            <a class="logo" href="/">
+            <a class="logo" href="dashboard.xhtml">
                 <img src="https://s13emagst.akamaized.net/layout/ro/images/logo//59/88362.svg" width="100" height="100" alt="Emag" />
             </a>
             <nav class="menu">
@@ -116,13 +116,13 @@
                                 <li role="menuitem">
                                     <a class="dropdown-link" href="#adobe-xd">
                                         <img height="25px" src="https://static.vecteezy.com/system/resources/previews/009/379/900/original/woman-face-expression-clipart-design-illustration-free-png.png" />
-                                        Female
+                                        Women
                                     </a>
                                 </li>
                                 <li role="menuitem">
                                     <a class="dropdown-link" href="#after-effect">
                                         <img height="25px" src="https://static.vecteezy.com/system/resources/previews/009/383/461/original/man-face-clipart-design-illustration-free-png.png" />
-                                        Male
+                                        Men
                                     </a>
                                 </li>
                                 <li role="menuitem">
@@ -181,7 +181,10 @@
                 <a href="#profile">
                     <img src="https://img.freepik.com/free-photo/close-up-young-successful-man-smiling-camera-standing-casual-outfit-against-blue-background_1258-65479.jpg" width="30" height="30" alt="user image" />
                 </a>
-                <button class="btn btn-primary">Logout</button>
+                <a href="/demo-1.0-SNAPSHOT/login" class="btn btn-primary">Logout
+                </a>
+
+
             </div>
 
             <button id="hamburger" aria-label="hamburger" aria-haspopup="true" aria-expanded="false">
@@ -191,4 +194,72 @@
     </div>
 </header>
 </body>
+<script type="text/javascript">
+    const dropdownBtn = document.querySelectorAll(".dropdown-btn");
+    const dropdown = document.querySelectorAll(".dropdown");
+    const hamburgerBtn = document.getElementById("hamburger");
+    const navMenu = document.querySelector(".menu");
+    const links = document.querySelectorAll(".dropdown a");
+
+    function setAriaExpandedFalse() {
+        dropdownBtn.forEach((btn) => btn.setAttribute("aria-expanded", "false"));
+    }
+
+    function closeDropdownMenu() {
+        dropdown.forEach((drop) => {
+            drop.classList.remove("active");
+            drop.addEventListener("click", (e) => e.stopPropagation());
+        });
+    }
+
+    function toggleHamburger() {
+        navMenu.classList.toggle("show");
+    }
+
+    dropdownBtn.forEach((btn) => {
+        btn.addEventListener("click", function (e) {
+            const dropdownIndex = e.currentTarget.dataset.dropdown;
+            const dropdownElement = document.getElementById(dropdownIndex);
+
+            dropdownElement.classList.toggle("active");
+            dropdown.forEach((drop) => {
+                if (drop.id !== btn.dataset["dropdown"]) {
+                    drop.classList.remove("active");
+                }
+            });
+            e.stopPropagation();
+            btn.setAttribute(
+                "aria-expanded",
+                btn.getAttribute("aria-expanded") === "false" ? "true" : "false"
+            );
+        });
+    });
+
+    // close dropdown menu when the dropdown links are clicked
+    links.forEach((link) =>
+        link.addEventListener("click", () => {
+            closeDropdownMenu();
+            setAriaExpandedFalse();
+            toggleHamburger();
+        })
+    );
+
+    // close dropdown menu when you click on the document body
+    document.documentElement.addEventListener("click", () => {
+        closeDropdownMenu();
+        setAriaExpandedFalse();
+    });
+
+    // close dropdown when the escape key is pressed
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            closeDropdownMenu();
+            setAriaExpandedFalse();
+        }
+    });
+
+    // toggle hamburger menu
+    hamburgerBtn.addEventListener("click", toggleHamburger);
+
+</script>
 </html>

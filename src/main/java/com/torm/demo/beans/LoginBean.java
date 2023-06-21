@@ -45,6 +45,7 @@ public class LoginBean implements Serializable {
         }
     }
 
+
     public void register() throws IOException {
         FacesContext facesContext = FacesContext.getCurrentInstance();
         ExternalContext ec = facesContext.getExternalContext();
